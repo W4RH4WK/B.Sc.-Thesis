@@ -1,0 +1,12 @@
+#!/usr/bin/env python
+
+import serial
+
+s = serial.Serial('/dev/ttyUSB0', 9600)
+
+while True:
+    s.write("q\r\n")
+    s.readline()
+    print s.readline(),
+
+s.close()
