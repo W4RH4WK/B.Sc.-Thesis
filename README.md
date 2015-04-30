@@ -20,3 +20,13 @@ The component used in the final solution consists of a microcontroller which is
 programmed to read in data from an Android phone and controls the robot
 accordingly. Apart from hardware the microcontroller’s firmware has been
 written together with and example Android application.
+
+## Known Issues
+
+- [2015-04-30] A friend just showed me how badly I fu*ked up the communications
+  protocol between the Android app and commboard. I use the newline character
+  as termination for the commands, but since commands take arguments in the
+  range from 0 to 255 one could break the protocol by using an argument with
+  the value of the newline character. Apart from this he also told me that it's
+  hard to regain synchronization with the command buffer after loosing
+  connection.
