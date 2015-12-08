@@ -23,10 +23,7 @@ written together with and example Android application.
 
 ## Known Issues
 
-- [2015-04-30] A friend just showed me how badly I fu*ked up the communications
-  protocol between the Android app and commboard. I use the newline character
-  as termination for the commands, but since commands take arguments in the
-  range from 0 to 255 one could break the protocol by using an argument with
-  the value of the newline character. Apart from this he also told me that it's
-  hard to regain synchronization with the command buffer after loosing
-  connection.
+- `2015-04-30` Since the firmware's command buffer logic ignores `\r` (carriage
+  return) and terminates on `\n` (linefeed), one cannot use the corresponding
+  values as arguments. Just increment the value by one before sending, you
+  won't notice the difference anyway.
